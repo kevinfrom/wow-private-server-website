@@ -1,0 +1,18 @@
+{
+    "name": "kevinfrom/wow-private-server",
+    "description": "Website for WoW private server. Features signup, sign-in, changing password and viewing characters",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kevin From",
+            "email": "kevin@kevinfrom.dk"
+        }
+    ],
+    "require": {
+        "php": "^8.4",
+        "ext-frankenphp": "*",
+        "nette/database": "^3.2.7",
+        "nikic/fast-route": "^1.3.0"
+    }
+}
