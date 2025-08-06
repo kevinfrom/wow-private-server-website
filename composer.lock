@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "adfe9ee05d46d9194ce42d83716b3b5e",
+    "content-hash": "eae1cab8f006ee382d7c4f609ccfdbbc",
     "packages": [
         {
             "name": "nette/caching",
@@ -300,7 +300,7 @@
     "prefer-lowest": false,
     "platform": {
         "php": "^8.4",
-        "ext-frankenphp": "*"
+        "ext-iconv": "*"
     },
     "platform-dev": {},
     "plugin-api-version": "2.6.0"

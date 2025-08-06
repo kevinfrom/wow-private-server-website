@@ -1,0 +1,35 @@
+volumes:
+  caddy_data:
+  caddy_config:
+services:
+  app:
+    container_name: wow-private-server-website
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+    environment:
+      TZ: Europe/Copenhagen
+  app-dev:
+    container_name: wow-private-server-website
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - .:/app:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    environment:
+      TZ: Europe/Copenhagen
