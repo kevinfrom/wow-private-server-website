@@ -1,13 +1,18 @@
+name: wow-private-server-website
 volumes:
   caddy_data:
   caddy_config:
+networks:
+  default:
 services:
   app:
-    container_name: wow-private-server-website
     restart: unless-stopped
+    env_file: .env
     build:
       context: .
       dockerfile: Dockerfile
+    networks:
+      - default
     ports:
       - "80:80"
       - "443:443"
@@ -15,14 +20,13 @@ services:
     volumes:
       - caddy_data:/data
       - caddy_config:/config
-    environment:
-      TZ: Europe/Copenhagen
   app-dev:
-    container_name: wow-private-server-website
-    tty: true
+    env_file: .env
     build:
       context: .
       dockerfile: Dockerfile
+    networks:
+      - default
     ports:
       - "80:80"
       - "443:443"
@@ -31,5 +35,13 @@ services:
       - .:/app:ro
       - caddy_data:/data
       - caddy_config:/config
+  mariadb:
+    image: mariadb:11.8
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - default
     environment:
-      TZ: Europe/Copenhagen
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_USER: ${DB_USERNAME}
+      MARIADB_PASSWORD: ${DB_PASSWORD}

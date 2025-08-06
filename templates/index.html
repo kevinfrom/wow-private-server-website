@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pik til Patrick - World of Warcraft Classic Private Server (1.12.1)</title>
+    <link href="/favicon.png" rel="icon" type="image/png">
+    <link href="/reset.css" rel="stylesheet">
+    <link href="/main.css" rel="stylesheet">
+</head>
+<body>
+<div class="page">
+    <div class="container">
+        <header class="header">
+            <a href="#characters">
+                <h1 class="header__brand" title="Home">Pik til Patrick</h1>
+            </a>
+
+            <nav class="header__nav">
+                <a href="#signup" class="header__nav__item">Signup</a>
+                <a href="#change-password" class="header__nav__item">Change password</a>
+                <a href="#connect" class="header__nav__item">Connect</a>
+            </nav>
+        </header>
+    </div>
+
+    <main>
+        <div id="characters" class="container">
+            <div class="card characters">
+                <h2>Characters</h2>
+
+                <table id="characters-list">
+                    <thead>
+                    <tr>
+                        <th width="80">Online <span id="online-count"></span></th>
+                        <th width="200">Name</th>
+                        <th width="150">Race</th>
+                        <th width="150">Class</th>
+                        <th width="40">Level</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="grid-2">
+                <div id="signup" class="card signup">
+                    <h2>Signup</h2>
+
+                    <form id="signup-form" class="signup__form">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" required="required" placeholder="Username">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required="required" placeholder="Password">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm password</label>
+                            <input type="password" id="confirm-password" name="confirm_password" required="required" placeholder="Confirm password">
+                        </div>
+
+                        <button type="submit" class="button">Create Account</button>
+                    </form>
+                </div>
+
+                <div id="change-password" class="card change-password">
+                    <h2>Change password</h2>
+
+                    <form id="change-password-form" class="change-password__form">
+                        <div class="form-group">
+                            <label for="change-password-username">Username</label>
+                            <input type="text" id="change-password-username" name="username" required="required" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="current-password">Current password</label>
+                            <input type="password" id="current-password" name="current_password" required="required" placeholder="Current password">
+                        </div>
+                        <div class="form-group">
+                            <label for="new-password">New password</label>
+                            <input type="password" id="new-password" name="new_password" required="required" placeholder="New password">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-new-password">Confirm password</label>
+                            <input type="password" id="confirm-new-password" name="confirm_new_password" required="required" placeholder="Confirm password">
+                        </div>
+                        <button type="submit" class="button">Change Password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="connect" class="card connect">
+                <h2>Connect</h2>
+
+                <ol>
+                    <li>
+                        <p><a href="http://cdn.twinstar-wow.com/WoW_Vanilla.zip" download class="connect__link">Download the WoW client</a></p>
+                    </li>
+                    <li>
+                        <p>Edit the <code>realmlist.wtf</code> file and change it code <code>set realmlist wow.lab.fromsoftware.dk</code>.</p>
+                    </li>
+                    <li>
+                        <p>
+                            Install your desired addons, e.g.
+                            <a href="https://legacy-wow.com/vanilla-addons" target="_blank" rel="noreferrer" class="connect__link">legacy-wow.com</a>
+                        </p>
+                    </li>
+                    <li><p>Launch the game using the <code>wow.exe</code> file.</p></li>
+                    <li><p>Sign in using your account and play!</p></li>
+                </ol>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">&copy; 2025 kevin from</div>
+    </footer>
+</div>
+
+<script src="/main.js"></script>
+</body>
+</html>
