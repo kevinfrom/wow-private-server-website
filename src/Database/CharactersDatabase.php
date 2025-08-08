@@ -26,9 +26,20 @@ final readonly class CharactersDatabase
 
     public function getCharacters(): array
     {
+        $realmdDatabase = getenv('DB_NAME_REALMD');
+
         return $this->getConnection()->query(<<<SQL
-            SELECT `name`, `race`, `class`, `level`, `online`
+            SELECT `characters`.`name`,
+                `characters`.`race`,
+                `characters`.`class`,
+                `characters`.`level`,
+                `characters`.`online`
             FROM `characters`
+            WHERE `account` NOT IN (
+                SELECT `account`.`id`
+                FROM `$realmdDatabase`.`account`
+                WHERE `account`.`gmlevel` > 0
+            )
             ORDER BY `online` DESC, `name` ASC
         SQL
         )->fetchAll();

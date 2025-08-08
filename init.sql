@@ -68,11 +68,11 @@ CREATE TABLE `characters`
     KEY                         `idx_name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci ROW_FORMAT=DYNAMIC COMMENT='Player System';
 INSERT INTO `characters`
-    (`guid`, `name`, `race`, `class`, `level`, `online`)
+    (`guid`, `account`, `name`, `race`, `class`, `level`, `online`)
 VALUES
-    (1, 'Humanmage', 1, 8, 15, true),
-    (2, 'Nelfwarrior', 4, 1, 47, true),
-    (3, 'Orcshaman', 2, 7, 60, false);
+    (1, 1, 'Humanmage', 1, 8, 15, true),
+    (2, 1, 'Nelfwarrior', 4, 1, 47, false),
+    (3, 3, 'Gmorcshaman', 2, 7, 60, false);
 
 CREATE DATABASE `classicrealmd`;
 USE `classicrealmd`;
@@ -102,7 +102,7 @@ CREATE TABLE `account` (
                            UNIQUE KEY `idx_username` (`username`),
                            KEY `idx_gmlevel` (`gmlevel`)
 ) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci ROW_FORMAT=DYNAMIC COMMENT='Account System';
-INSERT INTO `account` (`username`) VALUES ('TEST'), ('ABCD');
+INSERT INTO `account` (`id`, `username`, `gmlevel`) VALUES (1, 'TEST', 0), (2, 'ABCD', 0), (3, 'GM', 4);
 
 GRANT ALL PRIVILEGES ON `classiccharacters`.* TO 'dev'@'%';
 GRANT ALL PRIVILEGES ON `classicrealmd`.* TO 'dev'@'%';
