@@ -9,7 +9,7 @@ To build the image for both `amd64` and `arm64` CPUs, use the below command.
 docker login ghcr.io -u kevin
 
 docker buildx build --platform linux/arm64,linux/amd64 -t ghcr.io/kevinfrom/wow-private-server-website:[version] -t ghcr.io/kevinfrom/wow-private-server-website:latest --push .
-```bash
+```
 
 ## Configuration
 
