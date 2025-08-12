@@ -1,7 +1,16 @@
 <?php
 /**
+ * @var array               $characters
  * @var \App\View\Templater $this
  */
+
+$onlineCount = array_reduce($characters, function ($count, $character): int {
+    if (empty($character['online'])) {
+        return $count;
+    }
+
+    return $count + 1;
+});
 ?>
 
 <div class="container">
@@ -11,7 +20,11 @@
         <table id="characters-list">
             <thead>
             <tr>
-                <th width="80">Online <span id="online-count"></span></th>
+                <th width="80">
+                    Online
+                    <span id="online-count">
+                        <?= sprintf('%s/%s', $onlineCount, count($characters)) ?>
+                    </span></th>
                 <th width="200">Name</th>
                 <th width="150">Race</th>
                 <th width="150">Class</th>
@@ -19,13 +32,15 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            <?php foreach ($characters as $character) { ?>
+                <tr>
+                    <td><?= $character['online'] ? 'Yes' : 'No' ?></td>
+                    <td><?= $character['name'] ?></td>
+                    <td><?= $character['race'] ?></td>
+                    <td><?= $character['class'] ?></td>
+                    <td><?= $character['level'] ?></td>
+                </tr>
+            <?php } ?>
             </tbody>
         </table>
     </div>

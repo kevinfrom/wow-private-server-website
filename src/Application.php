@@ -38,7 +38,7 @@ final readonly class Application
             'appVersion' => APP_VERSION,
         ]));
 
-        $this->container->add(HomeController::class)->addArgument(Templater::class);
+        $this->container->add(HomeController::class)->addArgument(Templater::class)->addArgument(CharacterService::class);
         $this->container->add(AccountController::class)->addArgument(AccountService::class);
         $this->container->add(CharacterController::class)->addArgument(CharacterService::class);
     }
