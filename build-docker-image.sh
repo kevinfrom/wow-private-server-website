@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-VERSION="$(cat "./VERSION")"
+VERSION="$(cat "./VERSION" | xargs)"
 
 read -p "Are you sure you want to build and push the Docker image for version $VERSION? (y/n): " -n 1 -r
 echo
