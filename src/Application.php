@@ -11,6 +11,8 @@ use App\Http\Controller\Api\CharacterController;
 use App\Http\Controller\HomeController;
 use App\Services\AccountService;
 use App\Services\CharacterService;
+use App\View\Templater;
+use ArrayObject;
 use FastRoute\Dispatcher;
 use FastRoute\RouteCollector;
 use League\Container\Container;
@@ -32,7 +34,11 @@ final readonly class Application
         $this->container->add(AccountService::class)->addArgument(RealmdDatabase::class);
         $this->container->add(CharacterService::class)->addArgument(CharactersDatabase::class);
 
-        $this->container->add(HomeController::class);
+        $this->container->add(Templater::class)->addArgument(TEMPLATES_DIR)->addArgument(new ArrayObject([
+            'appVersion' => APP_VERSION,
+        ]));
+
+        $this->container->add(HomeController::class)->addArgument(Templater::class);
         $this->container->add(AccountController::class)->addArgument(AccountService::class);
         $this->container->add(CharacterController::class)->addArgument(CharacterService::class);
     }

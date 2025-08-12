@@ -1,3 +1,10 @@
+<?php
+/**
+ * @var string              $appVersion
+ * @var \App\View\Templater $this
+ */
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,126 +13,28 @@
     <title>Pik til Patrick - World of Warcraft Classic Private Server (1.12.1)</title>
     <meta name="robots" content="noindex">
     <link href="/favicon.png" rel="icon" type="image/png">
-    <link href="/reset.css" rel="stylesheet">
     <link href="/main.css" rel="stylesheet">
 </head>
 <body>
 <div class="page">
-    <div class="container">
-        <header class="header">
-            <a href="#characters">
-                <h1 class="header__brand" title="Home">Pik til Patrick</h1>
-            </a>
-        </header>
-    </div>
+    <?= $this->element('header') ?>
 
     <main>
-        <div id="characters" class="container">
-            <div class="card characters">
-                <h2>Characters</h2>
-
-                <table id="characters-list">
-                    <thead>
-                    <tr>
-                        <th width="80">Online <span id="online-count"></span></th>
-                        <th width="200">Name</th>
-                        <th width="150">Race</th>
-                        <th width="150">Class</th>
-                        <th width="40">Level</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <?= $this->element('characters') ?>
 
         <div class="container">
             <div class="grid">
-                <div id="signup" class="card signup">
-                    <h2>Signup</h2>
-
-                    <form id="signup-form" class="signup__form">
-                        <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" id="username" name="username" required="required" placeholder="Username">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password" required="required" placeholder="Password">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="confirm-password">Confirm password</label>
-                            <input type="password" id="confirm-password" name="confirm_password" required="required" placeholder="Confirm password">
-                        </div>
-
-                        <button type="submit" class="button">Create Account</button>
-                    </form>
-                </div>
-
-                <div id="change-password" class="card change-password">
-                    <h2>Change password</h2>
-
-                    <form id="change-password-form" class="change-password__form">
-                        <div class="input-group">
-                            <label for="change-password-username" class="input-group__label">Username</label>
-                            <input type="text" id="change-password-username" name="username" required="required" placeholder="Username" class="input-group__input">
-                        </div>
-                        <div class="input-group">
-                            <label for="current-password" class="input-group__label">Current password</label>
-                            <input type="password" id="current-password" name="current_password" required="required" placeholder="Current password" class="input-group__input">
-                        </div>
-                        <div class="input-group">
-                            <label for="new-password" class="input-group__label">New password</label>
-                            <input type="password" id="new-password" name="new_password" required="required" placeholder="New password" class="input-group__input">
-                        </div>
-                        <div class="input-group">
-                            <label for="confirm-new-password" class="input-group__label">Confirm password</label>
-                            <input type="password" id="confirm-new-password" name="confirm_new_password" required="required" placeholder="Confirm password"
-                                   class="input-group__input">
-                        </div>
-                        <button type="submit" class="button">Change Password</button>
-                    </form>
-                </div>
+                <?= $this->element('signup') ?>
+                <?= $this->element('change-password') ?>
             </div>
         </div>
 
         <div class="container">
-            <div id="connect" class="card connect">
-                <h2>Connect</h2>
-
-                <ol>
-                    <li>
-                        <p><a href="http://cdn.twinstar-wow.com/WoW_Vanilla.zip" download class="connect__link">Download the WoW client</a></p>
-                    </li>
-                    <li>
-                        <p>Edit the <code>realmlist.wtf</code> file and change it to <code>set realmlist wow.lab.fromsoftware.dk</code>.</p>
-                    </li>
-                    <li>
-                        <p>
-                            Install your desired addons, e.g.
-                            <a href="https://legacy-wow.com/vanilla-addons" target="_blank" rel="noreferrer" class="connect__link">legacy-wow.com</a>
-                        </p>
-                    </li>
-                    <li><p>Launch the game using the <code>wow.exe</code> file.</p></li>
-                    <li><p>Sign in using your account and play!</p></li>
-                </ol>
-            </div>
+            <?= $this->element('connect') ?>
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="container">&copy; 2025 kevin from - wow classic 1.12.1 - website version <?= APP_VERSION ?></div>
-    </footer>
+    <?= $this->element('footer') ?>
 </div>
 
 <script src="/main.js"></script>
