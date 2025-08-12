@@ -3,3 +3,5 @@
 node_modules
 vendor
 .env
+public/main.min.css
+public/main.min.js

@@ -1,0 +1,10 @@
+.connect {
+    &__link {
+        text-decoration: underline;
+        color: var(--color-link);
+
+        &:hover {
+            color: var(--color-link-hover);
+        }
+    }
+}

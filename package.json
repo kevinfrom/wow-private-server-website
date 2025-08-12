@@ -1,0 +1,11 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "node ./esbuild.js"
+    },
+    "devDependencies": {
+        "esbuild": "^0.25.8",
+        "esbuild-sass-plugin": "^3.3.1"
+    }
+}

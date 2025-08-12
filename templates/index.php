@@ -13,7 +13,7 @@
     <title>Pik til Patrick - World of Warcraft Classic Private Server (1.12.1)</title>
     <meta name="robots" content="noindex">
     <link href="/favicon.png" rel="icon" type="image/png">
-    <link href="/main.css" rel="stylesheet">
+    <link href="/main.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="page">
@@ -37,6 +37,6 @@
     <?= $this->element('footer') ?>
 </div>
 
-<script src="/main.js"></script>
+<script src="/main.min.js"></script>
 </body>
 </html>

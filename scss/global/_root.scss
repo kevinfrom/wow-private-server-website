@@ -1,0 +1,16 @@
+:root {
+    --color-text: #{$color-text};
+    --color-bg: #{$color-bg};
+    --color-card-bg: #{$color-card-bg};
+    --color-border: #{$color-border};
+    --color-accent: #{$color-accent};
+    --color-accent-hover: #{$color-accent-hover};
+    --color-link: #{$color-link};
+    --color-link-hover: #{$color-link-hover};
+
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: $font-family;
+    background: var(--color-bg);
+    color: var(--color-text);
+}
