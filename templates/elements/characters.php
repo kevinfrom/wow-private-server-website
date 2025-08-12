@@ -4,9 +4,9 @@
  * @var \App\View\Templater $this
  */
 
-$onlineCount = array_reduce($characters, function ($count, $character): int {
+$onlineCount = array_reduce($characters, function (?int $count, $character): int {
     if (empty($character['online'])) {
-        return $count;
+        return $count ?? 0;
     }
 
     return $count + 1;
