@@ -57,24 +57,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // Scroll to anchor links smoothly
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', event => {
-            const targetId = link.getAttribute('href').substring(1)
-
-            if (!targetId) {
-                return
-            }
-
-            event.preventDefault()
-            const targetElement = document.getElementById(targetId)
-
-            if (targetElement) {
-                targetElement.scrollIntoView({behavior: 'smooth'})
-            }
-        })
-    })
-
     const loadCharacters = async () => {
         const characterList = document.querySelector('#characters-list tbody')
 
@@ -100,6 +82,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     void loadCharacters()
+    setInterval(() => void loadCharacters(), 60 * 1000) // Refresh every minute
 
     document.querySelector('form#signup-form').addEventListener('submit', async function (event) {
         event.preventDefault()
