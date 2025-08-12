@@ -15,6 +15,8 @@ require ROOT_DIR . DS . 'vendor' . DS . 'autoload.php';
 use App\Application;
 use League\Container\Container;
 
+define('APP_VERSION', file_get_contents(ROOT_DIR . DS . 'VERSION'));
+
 $container = new Container();
 $container->add(Application::class)->addArgument($container);
 

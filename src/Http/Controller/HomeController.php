@@ -8,7 +8,7 @@ final readonly class HomeController
 {
     public function index(): never
     {
-        readfile(TEMPLATES_DIR . DS . 'index.html');
+        require_once TEMPLATES_DIR . DS . 'index.php';
         exit;
     }
 }

@@ -76,21 +76,22 @@
                     <h2>Change password</h2>
 
                     <form id="change-password-form" class="change-password__form">
-                        <div class="form-group">
-                            <label for="change-password-username">Username</label>
-                            <input type="text" id="change-password-username" name="username" required="required" placeholder="Username">
+                        <div class="input-group">
+                            <label for="change-password-username" class="input-group__label">Username</label>
+                            <input type="text" id="change-password-username" name="username" required="required" placeholder="Username" class="input-group__input">
                         </div>
-                        <div class="form-group">
-                            <label for="current-password">Current password</label>
-                            <input type="password" id="current-password" name="current_password" required="required" placeholder="Current password">
+                        <div class="input-group">
+                            <label for="current-password" class="input-group__label">Current password</label>
+                            <input type="password" id="current-password" name="current_password" required="required" placeholder="Current password" class="input-group__input">
                         </div>
-                        <div class="form-group">
-                            <label for="new-password">New password</label>
-                            <input type="password" id="new-password" name="new_password" required="required" placeholder="New password">
+                        <div class="input-group">
+                            <label for="new-password" class="input-group__label">New password</label>
+                            <input type="password" id="new-password" name="new_password" required="required" placeholder="New password" class="input-group__input">
                         </div>
-                        <div class="form-group">
-                            <label for="confirm-new-password">Confirm password</label>
-                            <input type="password" id="confirm-new-password" name="confirm_new_password" required="required" placeholder="Confirm password">
+                        <div class="input-group">
+                            <label for="confirm-new-password" class="input-group__label">Confirm password</label>
+                            <input type="password" id="confirm-new-password" name="confirm_new_password" required="required" placeholder="Confirm password"
+                                   class="input-group__input">
                         </div>
                         <button type="submit" class="button">Change Password</button>
                     </form>
@@ -123,7 +124,7 @@
     </main>
 
     <footer class="footer">
-        <div class="container">&copy; 2025 kevin from - wow classic 1.12.1 - website version 1.3</div>
+        <div class="container">&copy; 2025 kevin from - wow classic 1.12.1 - website version <?= APP_VERSION ?></div>
     </footer>
 </div>
 
