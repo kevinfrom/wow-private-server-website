@@ -20,6 +20,8 @@
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    min-width: 0 !important;
+    width: 100% !important;
 }
 
 img, picture, video, canvas, svg {
