@@ -11,6 +11,7 @@ use App\Http\Controller\Api\CharacterController;
 use App\Http\Controller\HomeController;
 use App\Services\AccountService;
 use App\Services\CharacterService;
+use App\Services\FeatureService;
 use App\View\Templater;
 use ArrayObject;
 use FastRoute\Dispatcher;
@@ -28,19 +29,39 @@ final readonly class Application
 
     protected function container(): void
     {
+        // Databases
         $this->container->add(CharactersDatabase::class);
         $this->container->add(RealmdDatabase::class);
 
-        $this->container->add(AccountService::class)->addArgument(RealmdDatabase::class);
-        $this->container->add(CharacterService::class)->addArgument(CharactersDatabase::class);
+        // Services
+        $this->container->add(AccountService::class)->addArguments([
+            RealmdDatabase::class,
+        ]);
+        $this->container->add(CharacterService::class)->addArguments([
+            CharactersDatabase::class,
+        ]);
+        $this->container->add(FeatureService::class);
 
-        $this->container->add(Templater::class)->addArgument(TEMPLATES_DIR)->addArgument(new ArrayObject([
-            'appVersion' => APP_VERSION,
-        ]));
+        // Templater
+        $this->container->add(Templater::class)->addArguments([
+            TEMPLATES_DIR,
+            new ArrayObject([
+                'appVersion' => APP_VERSION,
+            ]),
+        ]);
 
-        $this->container->add(HomeController::class)->addArgument(Templater::class)->addArgument(CharacterService::class);
-        $this->container->add(AccountController::class)->addArgument(AccountService::class);
-        $this->container->add(CharacterController::class)->addArgument(CharacterService::class);
+        // Controllers
+        $this->container->add(HomeController::class)->addArguments([
+            Templater::class,
+            FeatureService::class,
+            CharacterService::class,
+        ]);
+        $this->container->add(AccountController::class)->addArguments([
+            AccountService::class,
+        ]);
+        $this->container->add(CharacterController::class)->addArguments([
+            CharacterService::class,
+        ]);
     }
 
     protected function routes(): void

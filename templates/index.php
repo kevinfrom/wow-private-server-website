@@ -1,6 +1,10 @@
 <?php
 /**
  * @var string              $appVersion
+ * @var array               $characters
+ * @var bool                $characterListEnabled
+ * @var bool                $signupEnabled
+ * @var bool                $changePasswordEnabled
  * @var \App\View\Templater $this
  */
 ?>
@@ -14,18 +18,36 @@
     <meta name="robots" content="noindex">
     <link href="/favicon.png" rel="icon" type="image/png">
     <link href="/main.min.css" rel="stylesheet">
+    <style>
+        header {
+            display: none !important;
+        }
+        main {
+            display: none !important;
+        }
+        footer {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
 <div class="page">
     <?= $this->element('header') ?>
 
     <main>
-        <?= $this->element('characters') ?>
+        <?php if ($characterListEnabled) { ?>
+            <?= $this->element('characters') ?>
+        <?php } ?>
 
         <div class="container">
             <div class="grid">
-                <?= $this->element('signup') ?>
-                <?= $this->element('change-password') ?>
+                <?php if ($signupEnabled) { ?>
+                    <?= $this->element('signup') ?>
+                <?php } ?>
+
+                <?php if ($changePasswordEnabled) { ?>
+                    <?= $this->element('change-password') ?>
+                <?php } ?>
             </div>
         </div>
 
