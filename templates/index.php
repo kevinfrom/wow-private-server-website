@@ -18,17 +18,6 @@
     <meta name="robots" content="noindex">
     <link href="/favicon.png" rel="icon" type="image/png">
     <link href="/main.min.css" rel="stylesheet">
-    <style>
-        header {
-            display: none !important;
-        }
-        main {
-            display: none !important;
-        }
-        footer {
-            display: none !important;
-        }
-    </style>
 </head>
 <body>
 <div class="page">
