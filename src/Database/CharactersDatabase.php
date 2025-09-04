@@ -40,7 +40,7 @@ final readonly class CharactersDatabase
                 FROM `$realmdDatabase`.`account`
                 WHERE `account`.`gmlevel` > 0
             )
-            ORDER BY `online` DESC, `name` ASC
+            ORDER BY `level` DESC, `name` ASC
         SQL
         )->fetchAll();
     }
