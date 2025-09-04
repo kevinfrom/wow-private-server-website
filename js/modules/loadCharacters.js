@@ -3,6 +3,10 @@ import {ApiClient} from '../utilities/ApiClient'
 export const loadCharacters = async () => {
     const characterList = document.querySelector('#characters-list tbody')
 
+    if (!characterList) {
+        return
+    }
+
     const characters        = await ApiClient.characters.get()
     characterList.innerHTML = ''
 
