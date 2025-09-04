@@ -58,9 +58,11 @@ final readonly class Application
         ]);
         $this->container->add(AccountController::class)->addArguments([
             AccountService::class,
+            FeatureService::class,
         ]);
         $this->container->add(CharacterController::class)->addArguments([
             CharacterService::class,
+            FeatureService::class,
         ]);
     }
 

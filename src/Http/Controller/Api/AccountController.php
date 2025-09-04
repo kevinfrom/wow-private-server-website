@@ -5,16 +5,24 @@ declare(strict_types=1);
 namespace App\Http\Controller\Api;
 
 use App\Services\AccountService;
+use App\Services\FeatureService;
 use RuntimeException;
 
 final readonly class AccountController
 {
-    public function __construct(protected AccountService $accountService)
-    {
+    public function __construct(
+        protected AccountService $accountService,
+        protected FeatureService $featureService
+    ) {
     }
 
     public function create(): never
     {
+        if (!$this->featureService->signupEnabled()) {
+            http_response_code(404);
+            exit;
+        }
+
         $username = mb_strtoupper($_POST['username'] ?? '');
         $password = $_POST['password'] ?? '';
 
@@ -37,6 +45,11 @@ final readonly class AccountController
 
     public function changePassword(string $username): never
     {
+        if (!$this->featureService->changePasswordEnabled()) {
+            http_response_code(404);
+            exit;
+        }
+
         $currentPassword    = $_POST['current_password'] ?? '';
         $newPassword        = $_POST['new_password'] ?? '';
         $confirmNewPassword = $_POST['confirm_new_password'] ?? '';
